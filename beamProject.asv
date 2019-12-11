@@ -100,7 +100,7 @@ plPositions = 'Measure position [m]';
 plDeflections = 'Calculated deflection [m]';
 positionList = {plNames plPositions plDeflections};
 
-global UDL WindSpeed
+global UDL
 % This section creates the main GUI window. First the figure is created,
 % and then five pushbuttons. When one of the buttons are pushed it triggers
 % a new figure with more options. S functions as a structure array, and fh
@@ -912,28 +912,6 @@ function pb_windConfig(varargin)
     % When the main function is closed, this GUI will close too.               
     set(S.fh,'deletefcn',{@fig_delet,T.fh})
 
-end
-
-function wind_callback(varargin)
-    % Load beam width.
-global WindSpeed
-
-% Get structure from the main configuration setup function.
-T = varargin{3};
-
-% Import beam width string from the edit box. Then change it to number.
-windSpeed = get(T.winded2, 'String');
-windSpeed = str2double(windSpeed);
-if isnumeric(windSpeed)
-    if windSpeed > 0
-        WindSpeed = windSpeed;
-        fprintf('WindSpeed set to: %d [km/h].\n',WindSpeed);
-    else
-        fprintf('WindSpeed must be a positive number.\n');
-    end
-else
-    fprintf('WindSpeed must be a positive number.\n');
-end
 end
 %------------------------------------------------------------------
 
