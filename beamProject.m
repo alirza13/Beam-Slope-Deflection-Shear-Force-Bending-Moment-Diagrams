@@ -87,6 +87,7 @@ function beamProject()
 global bgselect beamlength beamWidth beamHeight beamMaterial ElasticMod Inertia
 bgselect = 'Both';
 beamlength = 10;
+beamMaterial = 'steel';
 
 global flNames flPositions flMagnitudes forceList
 flNames = 'Force name';
@@ -1244,7 +1245,26 @@ loadForces = str2double(flMagnitudes(2:end));
 % Plot beam.
 beamPlot(beamlength,loadPositions,loadForces,bgselect)
 end
+%-------------------------------------------------------------------------
+%% PLOT SHEAR FORCE DIAGRAM
+function pb_plotShearForce(varargin)
+    global bgselect flMagnitudes beamlength beamWidth beamHeight beamMaterial ElasticMod Inertia UDL WindSpeed FluidType
+    plotShearForce(bgselect,beamlength,beamWidth,beamHeight,beamMaterial,ElasticMod,Inertia,str2double(flMagnitudes(2)),UDL,WindSpeed,FluidType)
+end
+%-------------------------------------------------------------------------
 
+%% PLOT BENDING MOMENT DIAGRAM
+function pb_plotBendingMoment(varargin)
+    global bgselect flMagnitudes beamlength beamWidth beamHeight beamMaterial ElasticMod Inertia UDL WindSpeed FluidType
+    plotBendingMoment(bgselect,beamlength,beamWidth,beamHeight,beamMaterial,ElasticMod,Inertia,str2double(flMagnitudes(2)),UDL,WindSpeed,FluidType)
+end
+%-------------------------------------------------------------------------
+
+%% PLOT SLOPE DIAGRAM
+function pb_plotSlope(varargin)
+    global bgselect flMagnitudes beamlength beamWidth beamHeight beamMaterial ElasticMod Inertia UDL WindSpeed FluidType
+    plotSlope(bgselect,beamlength,beamWidth,beamHeight,beamMaterial,ElasticMod,Inertia,str2double(flMagnitudes(2)),UDL,WindSpeed,FluidType)
+end
 %-------------------------------------------------------------------------
 %% END BEAM SETUP
 
