@@ -1,0 +1,2 @@
+1 - This application is designed for the project questions 1-4. It is likely that it will fail to work properly for other types of loads and force positions.
+2 - Please add point force at the end of the beam and set Uniformly Distributed Load from the specific setting(just right below the force config).
